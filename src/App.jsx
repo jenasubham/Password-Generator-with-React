@@ -39,36 +39,36 @@ function App() {
     window.navigator.clipboard.writeText(password);
   }, [password])
   return (
-    <>
-    <div className='w-full max-w-md mx-auto rounded-lg bg-gray-700 text-orange-400 my-6 px-4 py-5' >
-      <h1 className='text-center text-4xl mb-4 text-white '>Password Generator</h1>
-      <div className= 'flex shadow rounded-lg overflow-hidden mb-4'>
-        <input type="text" placeholder='Password' readOnly value={password} ref={passwordRef} className='w-full outline-none py-1 px-3' />
+    <div className='min-h-screen flex justify-center items-center'>
+    <div className='w-full max-w-lg mx-auto text-slate-200 my-6 px-4 py-15 border border-gray-60 rounded-xl p-5 backdrop-blur-3xl bg-white/30' >
+      <h1 className='text-center text-4xl mb-14 text-white font-semibold'>Password Generator</h1>
+      <div className= 'flex shadow rounded-lg overflow-hidden mb-10'>
+        <input type="text" placeholder='Password' readOnly value={password} ref={passwordRef} className='w-full py-3 font-mon1 outline-none text-gray-700 text-lg font-semibold px-3' />
         <button className='outline-none bg-blue-700 px-3 py-1 cursor-pointer text-white font-semibold hover:scale-95' onClick={copyPasswordToClipboard} >copy</button>
       </div>
 
-      <div className='flex text-sm gap-x-3'>
+      <div className='flex text-sm gap-x-6'>
         <div className='flex items-center gap-x-1' >
           <input type="range" min={6} max={32} value={length} className='curson-pointer' onChange={(e) =>setLength(e.target.value)}  />
-          <label className='font-medium' > Length: {length}</label>
+          <label className='font-medium text-base' > Length: {length}</label>
         </div>
       
         <div className='flex items-center gap-x-1' >
           <input id='numberInput' type="checkbox" defaultChecked={numberAllowed} onChange={() => {
             setNumberAllowed((prev) => !prev)
             }} />
-          <label htmlFor= 'numberInput' className='font-medium' > Numbers</label>
+          <label htmlFor= 'numberInput' className='font-medium text-base' > Numbers</label>
         </div>
         <div className='flex items-center gap-x-1' >
           <input id='characterInput' type="checkbox" defaultChecked={charAllowed} onChange={()=> {
             setCharAllowed((prev => !prev))
             }} />
-          <label htmlFor='characterInput' className='font-medium' > Characters</label>
+          <label htmlFor='characterInput' className='font-medium text-base' > Characters</label>
         </div>
       </div>
 
     </div>
-    </>
+    </div>
   )
 }
 
